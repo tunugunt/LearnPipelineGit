@@ -14,3 +14,4 @@ jobs:
     matrix: $[ dependencies.generator.outputs['mtrx.legs'] ]
   steps:
   - script: echo $(myvar) # echos A or B depending on which leg is running
+    name: subtask
