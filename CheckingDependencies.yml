@@ -1,0 +1,37 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+name: Checkingdependencies
+stages:
+  - stage: FanOut
+    jobs:
+      - job: A
+        steps:
+        - script: echo Stage fan out job A
+          
+      - job: B
+        dependsOn: A
+        steps:
+          - bash: echo "job B depends on Job A"
+      
+      - job: C
+        dependsOn: A
+        steps:
+          - script: echo "job c depende on job A"
+  - stage: FanIn
+    jobs:
+      - job: V1
+        steps:
+        - bash: echo stage fan in job v1
+      - job: v2
+        steps:
+          - bash: echo stage fan in job v2
+          - bash: echo testing multiple steps in a job
+      - job: v3
+        dependsOn:
+          - V1
+          - v2
+        steps:
+          - bash: echo Testing Fan in V3 job
