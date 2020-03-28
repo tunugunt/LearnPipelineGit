@@ -3,8 +3,9 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+name: Checkingdependencies
 stages:
-  - stage: Fan out
+  - stage: FanOut
     jobs:
       - job: A
         steps:
