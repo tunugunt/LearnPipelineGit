@@ -4,7 +4,6 @@
 # https://aka.ms/yaml
 
 name: Checkingdependencies
-
 stages:
   - stage: Fan out
     jobs:
